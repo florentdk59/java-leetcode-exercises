@@ -1,4 +1,4 @@
-package com.florent.leetcode.foursum;
+package com.florent.leetcode.quadrupletsum;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ import java.util.*;
  * <br/>
  * You may return the answer in any order.
  */
-public class FourSumSolution {
+public class QuadrupletSumSolution {
 
     // 55ms (2 loops + move left and right)
     public List<List<Integer>> fourSum(final int[] nums, int target) {
@@ -53,7 +53,7 @@ public class FourSumSolution {
         return result;
     }
 
-    // 225ms (4 nested loops + sort + contains)
+    // 245ms (4 nested loops + sort + contains)
     public List<List<Integer>> fourSumSlow(int[] nums, int target) {
         List<List<Integer>> validLists = new ArrayList<>();
 

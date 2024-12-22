@@ -1,6 +1,7 @@
-package com.florent.leetcode.foursum;
+package com.florent.leetcode.quadrupletsum;
 
-import com.florent.leetcode.foursum.utils.AssertIntList;
+import com.florent.leetcode.quadrupletsum.utils.AssertIntList;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -12,7 +13,17 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-public class FourSumSolutionTest {
+public class QuadrupletSumSolutionTest {
+
+    private QuadrupletSumSolution solution;
+    final static int[] LARGE_ARRAY = new int[] {
+            -489,-475,-469,-468,-467,-462,-456,-443,-439,-425,-425,-410,-401,-342,-341,-331,-323,-307,-299,-262,-254,-245,-244,-238,-229,-227,-225,-224,-221,-197,-173,-171,-160,-142,-142,-136,-134,-125,-114,-100,-86,-81,-66,-47,-37,-34,4,7,11,34,60,76,99,104,113,117,124,139,141,143,144,146,157,157,178,183,185,189,192,194,221,223,226,232,247,249,274,281,284,293,298,319,327,338,340,368,375,377,379,388,390,392,446,469,480,490
+    };
+
+    @BeforeEach
+    void setup() {
+        solution = new QuadrupletSumSolution();
+    }
 
     @Nested
     class FourSum {
@@ -22,7 +33,7 @@ public class FourSumSolutionTest {
         void shouldFindTheFourSum(List<Integer> values, int target, List<List<Integer>> expectedLists) {
             int[] nums = values.stream().mapToInt(Integer::intValue).toArray();
 
-            var result = new FourSumSolution().fourSum(nums, target);
+            var result = solution.fourSum(nums, target);
 
             AssertIntList.expectListOfListsAreEqualInAnyOrder(result, expectedLists);
         }
@@ -85,15 +96,23 @@ public class FourSumSolutionTest {
         @Test
         @Timeout(value = 55, unit = TimeUnit.MILLISECONDS)
         void shouldNotFindTheFourSum() {
-            int[] nums = new int[] {
-                    -489,-475,-469,-468,-467,-462,-456,-443,-439,-425,-425,-410,-401,-342,-341,-331,-323,-307,-299,-262,-254,-245,-244,-238,-229,-227,-225,-224,-221,-197,-173,-171,-160,-142,-142,-136,-134,-125,-114,-100,-86,-81,-66,-47,-37,-34,4,7,11,34,60,76,99,104,113,117,124,139,141,143,144,146,157,157,178,183,185,189,192,194,221,223,226,232,247,249,274,281,284,293,298,319,327,338,340,368,375,377,379,388,390,392,446,469,480,490
-            };
-
-            var result = new FourSumSolution().fourSum(nums, 2738);
+            var result = solution.fourSum(LARGE_ARRAY, 2738);
 
             AssertIntList.expectListOfListsAreEqualInAnyOrder(result, List.of());
         }
 
+    }
+
+    @Nested
+    class FourSumSlow {
+
+        @Test
+        @Timeout(value = 245, unit = TimeUnit.MILLISECONDS)
+        void shouldNotFindTheFourSum() {
+            var result = solution.fourSumSlow(LARGE_ARRAY, 2738);
+
+            AssertIntList.expectListOfListsAreEqualInAnyOrder(result, List.of());
+        }
 
     }
 
