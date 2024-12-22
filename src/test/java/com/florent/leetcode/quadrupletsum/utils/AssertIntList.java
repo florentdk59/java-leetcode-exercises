@@ -1,4 +1,4 @@
-package com.florent.leetcode.foursum.utils;
+package com.florent.leetcode.quadrupletsum.utils;
 
 import java.util.List;
 
