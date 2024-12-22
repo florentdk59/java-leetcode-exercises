@@ -4,10 +4,7 @@ package com.florent.leetcode.temperatures;
 import com.florent.leetcode.temperatures.utils.TemperatureMaker;
 import com.florent.leetcode.utils.ParameterizedIntList;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -18,6 +15,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class TemperaturesSolutionTest {
 
+    private TemperaturesSolution solution;
+
+    @BeforeEach
+    void setup() {
+        solution = new TemperaturesSolution();
+    }
+
     @Nested
     class ComputeClosestToZero {
 
@@ -27,12 +31,12 @@ public class TemperaturesSolutionTest {
                 "-5_-4_-3_-2_2_3_4_5, 2",
                 "-5_-4_-3_-2_3_4_5, -2",
                 "-5_-4_-3_-2_0_2_3_4_5, 0",
-                "0; 0"
+                "0, 0"
         })
         void shouldFindTemperatureClosestToZero(ParameterizedIntList temperatures, int expectedTemperature) {
             int[] temperatureArray = temperatures.getValues().stream().mapToInt(Integer::intValue).toArray();
 
-            var result = new TemperaturesSolution().computeClosestToZero(temperatureArray);
+            var result = solution.computeClosestToZero(temperatureArray);
 
             log.info("shouldFindTemperatureClosestToZero [{}] -> {}", temperatures, result);
             assertThat(result).isEqualTo(expectedTemperature);
