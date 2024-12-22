@@ -24,7 +24,7 @@ public class MedianSortedArraysSolutionTest {
             int[] nums1 = array1.getValues().stream().mapToInt(Integer::intValue).toArray();
             int[] nums2 = array2.getValues().stream().mapToInt(Integer::intValue).toArray();
 
-            var result = new MedianTwoSortedArrays().findMedianSortedArrays(nums1, nums2);
+            var result = new MedianTwoSortedArraysSolution().findMedianSortedArrays(nums1, nums2);
             log.info("shouldFindSizeOfLongestNonRepeatingChars : result({}, {}) -> {}",  array1, array2, result);
 
             assertThat(result).isEqualTo(expectedMedian, within(0.01));
