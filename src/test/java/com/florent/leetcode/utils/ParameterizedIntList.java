@@ -10,7 +10,7 @@ import java.util.List;
 @ToString
 public class ParameterizedIntList {
 
-    private static final String DELIMITER = ",";
+    private static final String DELIMITER = "_";
 
     @ToString.Include
     private final List<Integer> values = new ArrayList<>();

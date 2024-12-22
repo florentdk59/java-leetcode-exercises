@@ -22,11 +22,11 @@ public class TemperaturesSolutionTest {
     class ComputeClosestToZero {
 
         @ParameterizedTest
-        @CsvSource(delimiter = ';', value = {
-                "7,-10,13,8,4,-7,-12,-3,3,-9,6,-1,-6,7; -1",
-                "-5,-4,-3,-2,2,3,4,5; 2",
-                "-5,-4,-3,-2,3,4,5; -2",
-                "-5,-4,-3,-2,0,2,3,4,5; 0",
+        @CsvSource({
+                "7_-10_13_8_4_-7_-12_-3_3_-9_6_-1_-6_7, -1",
+                "-5_-4_-3_-2_2_3_4_5, 2",
+                "-5_-4_-3_-2_3_4_5, -2",
+                "-5_-4_-3_-2_0_2_3_4_5, 0",
                 "0; 0"
         })
         void shouldFindTemperatureClosestToZero(ParameterizedIntList temperatures, int expectedTemperature) {

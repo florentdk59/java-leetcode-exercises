@@ -18,10 +18,10 @@ public class ListNodeSolutionTest {
     class AddTwoNumbers {
 
         @ParameterizedTest
-        @CsvSource(delimiter = ';', value = {
-                "2,4,3; 5,6,4; 7,0,8",
-                "0; 0; 0",
-                "9,9,9,9,9,9,9; 9,9,9,9; 8,9,9,9,0,0,0,1",
+        @CsvSource({
+                "2_4_3, 5_6_4, 7_0_8",
+                "0, 0, 0",
+                "9_9_9_9_9_9_9, 9_9_9_9, 8_9_9_9_0_0_0_1",
         })
         void shouldCombineTwoListNodes(ParameterizedIntList values1, ParameterizedIntList values2, ParameterizedIntList expectedValues) {
             var node1 = makeListNode(values1);

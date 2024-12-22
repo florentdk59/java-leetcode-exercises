@@ -15,10 +15,10 @@ public class TwoSumSolutionTest {
     class TwoSum {
 
         @ParameterizedTest
-        @CsvSource(delimiter = ';', value = {
-                "2,7,11,15; 9; 0; 1",
-                "3,2,4; 6; 1; 2",
-                "3,3; 6; 0; 1",
+        @CsvSource(value = {
+                "2_7_11_15, 9, 0, 1",
+                "3_2_4, 6, 1, 2",
+                "3_3, 6, 0, 1",
         })
         void shouldCombineTwoListNodes(ParameterizedIntList values, int target, int expectedIdx1, int expectedIdx2) {
             int[] numbers = values.getValues().stream().mapToInt(Integer::intValue).toArray();
