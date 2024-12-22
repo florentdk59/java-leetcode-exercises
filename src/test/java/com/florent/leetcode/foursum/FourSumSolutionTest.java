@@ -25,7 +25,6 @@ public class FourSumSolutionTest {
             var result = new FourSumSolution().fourSum(nums, target);
 
             AssertIntList.expectListOfListsAreEqualInAnyOrder(result, expectedLists);
-
         }
 
         static Stream<Arguments> argumentsShouldFindTheFourSum() {

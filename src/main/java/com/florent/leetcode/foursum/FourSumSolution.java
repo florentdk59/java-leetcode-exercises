@@ -28,23 +28,23 @@ public class FourSumSolution {
                     continue; // deduplicate
                 }
                 long sum = (long) target - nums[idx1] - nums[idx2];
-                int left = idx2 + 1;
-                int right = nums.length - 1;
+                int idxFromLeft = idx2 + 1;
+                int idxFromEnd = nums.length - 1;
 
-                while (left < right) {
-                    if (nums[left] + nums[right] > sum) {
-                        right--;
+                while (idxFromLeft < idxFromEnd) {
+                    if (nums[idxFromLeft] + nums[idxFromEnd] > sum) {
+                        idxFromEnd--;
                     }
-                    else if (nums[left] + nums[right] < sum) {
-                        left++;
+                    else if (nums[idxFromLeft] + nums[idxFromEnd] < sum) {
+                        idxFromLeft++;
                     }
                     else {
-                        result.add(Arrays.asList(nums[idx1], nums[idx2], nums[left++], nums[right--]));
-                        while ( left < right && nums[left] == nums[left - 1] ) {
-                            left++;
+                        result.add(Arrays.asList(nums[idx1], nums[idx2], nums[idxFromLeft++], nums[idxFromEnd--]));
+                        while ( idxFromLeft < idxFromEnd && nums[idxFromLeft] == nums[idxFromLeft - 1] ) {
+                            idxFromLeft++;
                         }
-                        while ( left < right && nums[right] == nums[right + 1] ) {
-                            right--;
+                        while ( idxFromLeft < idxFromEnd && nums[idxFromEnd] == nums[idxFromEnd + 1] ) {
+                            idxFromEnd--;
                         }
                     }
                 }
