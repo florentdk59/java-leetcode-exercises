@@ -1,4 +1,4 @@
-# leetcode-exercises
+# java-leetcode-exercises
 
 ## Requis
 - java oracle jdk-21
